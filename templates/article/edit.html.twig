@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ form.vars.value.id ? 'Modifier' : 'Créer' }} un article
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card shadow-lg p-4 mb-5 bg-white rounded">
+                    <div class="card-header">
+                        <h1 class="card-title text-center mb-4">
+                            {{ form.vars.value.id ? 'Modifier' : 'Créer' }} un article
+                        </h1>
+                    </div>
+                    <div class="card-body">
+                        {{ form_start(form) }}
+                        <div class="form-group">
+                            {{ form_widget(form) }}
+                        </div>
+                        <div class="text-center">
+                            <button class="btn btn-primary">
+                                {{ form.vars.value.id ? 'Modifier' : 'Créer' }}
+                            </button>
+                        </div>
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

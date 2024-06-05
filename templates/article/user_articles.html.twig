@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes Articles{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1 class="text-center mb-4">Mes Articles</h1>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">Titre</th>
+                    <th scope="col">Contenu</th>
+                    <th scope="col">Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for article in articles %}
+                    <tr>
+                        <td>{{ article.title }}</td>
+                        <td>{{ article.contenu }}</td>
+                        <td>
+                            <a href="{{ path('article_edit', { id: article.id }) }}" class="btn btn-primary btn-sm mr-1">Modifier</a>
+                            <a href="{{ path('article_delete', { id: article.id }) }}" class="btn btn-danger btn-sm mr-1">Supprimer</a>
+                            <a href="{{ path('article_detail', { id: article.id }) }}" class="btn btn-info btn-sm">Voir détails</a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="3">Aucun article trouvé.</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ form.vars.value.id ? 'Modifier' : 'Créer' }} un article{% endblock %}
+
+{% block body %}
+    <h1>{{ form.vars.value.id ? 'Modifier' : 'Créer' }} un article</h1>
+
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button class="btn">{{ form.vars.value.id ? 'Modifier' : 'Créer' }}</button>
+    {{ form_end(form) }}
+
+    <a href="{{ path('article_index') }}">Retour à la liste</a>
+{% endblock %}

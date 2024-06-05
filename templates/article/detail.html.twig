@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails de l'article{% endblock %}
+
+{% block body %}
+    <div class="container" style="margin-top: 20px">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card border-primary shadow">
+                    <div class="card-header bg-primary text-white">
+                        <i class="fas fa-newspaper"></i> <h5 class="card-title" style="text-align: center">Details d'article</h5>
+                    </div>
+                    <div style="text-align: center">
+                        <div class="card-body">
+                            <div class="form-group" >
+                                <label for="title" class="col-form-label text-primary">Titre :</label>
+                                <p class="card-text" id="title">{{ article.title }}</p>
+                            </div>
+                            <div class="form-group">
+                                <label for="contenu" class="col-form-label text-success">Contenu :</label>
+                                <p class="card-text" id="contenu">{{ article.contenu }}</p>
+                            </div>
+                            <div class="form-group">
+                                <label for="createdAt" class="col-form-label text-info">Créé le :</label>
+                                <p class="card-text" id="createdAt">{{ article.createdAt|date('d/m/Y') }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-transparent" style="text-align: center">
+                        <a href="{{ path('article_edit', { id: article.id }) }}" class="btn btn-primary btn-sm">Modifier</a>
+                        <a href="{{ path('article_delete', { id: article.id }) }}" class="btn btn-danger btn-sm">Supprimer</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

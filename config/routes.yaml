@@ -1,3 +1,18 @@
 controllers:
     resource: ../src/Controller/
     type: attribute
+article_edit:
+    path: /articles/{id}/edit
+    controller: App\Controller\ArticleController::edit
+    requirements:
+        id: \d+
+
+articles:
+  path: /articles/{id}
+  controller: App\Controller\ArticleController::show
+  methods: ['GET', 'DELETE']
+
+article_detail:
+  path: /article/{id}
+  controller: App\Controller\ArticleController::detailAction
+
